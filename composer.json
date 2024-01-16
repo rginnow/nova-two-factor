@@ -1,5 +1,5 @@
 {
-    "name": "visanduma/nova-two-factor",
+    "name": "rginnow/nova-two-factor",
     "description": "Nova Two Factor Authentication",
     "keywords": [
         "laravel",
