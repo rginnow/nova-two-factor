@@ -72,7 +72,7 @@ class TwoFactorController
         if (config('nova-two-factor.use_google_qr_code_api')) {
             $url = $this->getQRCodeUsingGoogle($company, $email, $secretKey);
         } else {
-            $url = (new Google2FA())->getQRCodeInline($company, $email, $secretKey, 500);
+            $url = (new Google2FA())->getQRCodeInline($company, $email, $secretKey, 250);
         }
 
         $data = [

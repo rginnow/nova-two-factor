@@ -75,12 +75,15 @@
         <div class="tw-flex tw-justify-center tw-items-center">
           <div>
             <img
+              v-if="qr_url.substring(0,4) === 'http' || qr_url.substring(0,4) === 'data'"
               width="250"
               height="250"
               :src="qr_url"
               alt="qr_code"
               class="tw-shadow-md tw-p-5 tw-rounded-lg"
             />
+            <div id="qr_code_svg" v-html="qr_url" v-else-if="qr_url.substring(0,5) === '<?xml'"></div>
+            <div class="tw-w-60 tw-shadow tw-p-5 tw-text-center" v-else>A QR code could not be generated. Please try again later.</div>
           </div>
         </div>
       </div>
@@ -138,3 +141,12 @@ export default {
   },
 };
 </script>
+
+<style>
+  #qr_code_svg svg {
+    max-width: 250px;
+    max-height: 250px;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  }
+</style>
